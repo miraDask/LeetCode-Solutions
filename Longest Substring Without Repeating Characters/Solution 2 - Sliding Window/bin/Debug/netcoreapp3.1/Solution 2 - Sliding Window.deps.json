@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Solution 2 - Sliding Window/1.0.0": {
+        "runtime": {
+          "Solution 2 - Sliding Window.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Solution 2 - Sliding Window/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
