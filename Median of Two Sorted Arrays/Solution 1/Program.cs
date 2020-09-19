@@ -29,16 +29,9 @@ namespace Solution_1
             }
 
             Array.Sort(newArray);
+            var middle = lengthOfNewArray / 2;
 
-            if (lengthOfNewArray % 2 == 0)
-            {
-                var middle = lengthOfNewArray / 2;
-                return (newArray[middle] + newArray[middle - 1]) / 2.00000;
-            }
-            else
-            {
-                return newArray[lengthOfNewArray / 2] * 1.00000;
-            }
+            return lengthOfNewArray % 2 == 0 ? (newArray[middle] + newArray[middle - 1]) / 2.0 : newArray[lengthOfNewArray / 2];
         }
     }
 }
