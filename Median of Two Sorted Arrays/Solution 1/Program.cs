@@ -14,24 +14,33 @@ namespace Solution_1
 
         public static double FindMedianSortedArrays(int[] nums1, int[] nums2)
         {
+            var newArray = GetMergedArray(nums1, nums2);
+            var middle = newArray.Length / 2;
+
+            return newArray.Length % 2 == 0 ? (newArray[middle] + newArray[middle - 1]) / 2.0 : newArray[newArray.Length / 2];
+        }
+
+        public static int[] GetMergedArray(int[] nums1, int[] nums2)
+        {
             var lengthOfNewArray = nums1.Length + nums2.Length;
             var newArray = new int[lengthOfNewArray];
 
-            for (var i = 0; i < nums1.Length; i++)
+            var p1 = 0;
+            var p2 = 0;
+
+            for (int i = 0; i < newArray.Length; i++)
             {
-                newArray[i] = nums1[i];
+                if (p2 >= nums2.Length || p1 < nums1.Length && nums1[p1] < nums2[p2])
+                {
+                    newArray[i] = nums1[p1++];
+                }
+                else
+                {
+                    newArray[i] = nums2[p2++];
+                }
             }
 
-            var pointer = 0;
-            for (var i = nums1.Length; i < lengthOfNewArray; i++)
-            {
-                newArray[i] = nums2[pointer++];
-            }
-
-            Array.Sort(newArray);
-            var middle = lengthOfNewArray / 2;
-
-            return lengthOfNewArray % 2 == 0 ? (newArray[middle] + newArray[middle - 1]) / 2.0 : newArray[lengthOfNewArray / 2];
+            return newArray;
         }
     }
 }
